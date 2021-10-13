@@ -13,14 +13,7 @@ from pyshorteners import Shortener
 
 
 
-def get_shortlink(url):
-   shortlink = False 
-   try:
-      shortlink = Shortener().dagd.short(url)
-   except Exception as err:
-       print(err)
-       pass
-   return shortlink
+
 @StreamBot.on_message(filters.private & (filters.document | filters.video | filters.audio) & ~filters.edited, group=4)
 async def private_receive_handler(c: Client, m: Message):
     if not await db.is_user_exist(m.from_user.id):
@@ -64,13 +57,8 @@ async def private_receive_handler(c: Client, m: Message):
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         stream_link = Var.URL + 'watch/' + str(log_msg.message_id)
-        shortlink = get_shortlink(stream_link) 
-        if shortlink:
-            stream_link = shortlink
+        
         online_link = Var.URL + 'download/'+ str(log_msg.message_id) 
-        shortlinka = get_shortlink(online_link)
-        if shortlinka:
-            online_link = shortlinka
         
         file_size = None
         if m.video:
