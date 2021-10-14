@@ -57,9 +57,9 @@ async def start(b, m):
         await m.reply_text(
             text="""
 Hi Sir!!
-I am Telegram File to Link Generator Bot.
+I am Telegram File to Link Generator Bot with Channel support.
 
-Send me any file and get http link with stream support.!""",
+Send me any file and get http download link with streamable link.!""",
             parse_mode="HTML",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton('My Channel', url=f"https://t.me/AjPyroVerse"),
@@ -74,7 +74,7 @@ Send me any file and get http link with stream support.!""",
                 if user.status == "kicked":
                     await b.send_message(
                         chat_id=m.chat.id,
-                        text="**Sorry sir, You are banned. Contact my support group** @AJPyroVerseGroup",
+                        text="**Sorry bro, You are banned. Contact my support group** @AJPyroVerseGroup",
                         parse_mode="markdown",
                         disable_web_page_preview=True
                     )
@@ -82,14 +82,14 @@ Send me any file and get http link with stream support.!""",
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="**Pʟᴇᴀsᴇ Jᴏɪɴ  Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴛʜɪs Bᴏᴛ**!\n\n**Dᴜᴇ ᴛᴏ Oᴠᴇʀʟᴏᴀᴅ, Oɴʟʏ Cʜᴀɴɴᴇʟ Sᴜʙsᴄʀɪʙᴇʀs ᴄᴀɴ ᴜsᴇ ᴛʜᴇ Bᴏᴛ**!",
+                    text="**Join My Updates Channel in order to use me.**!\n\n**Due to heavy traffic only Channel subscribers can use this bot**!",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🤖 Join Updates Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                                InlineKeyboardButton("Join Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
                             ],
                             [
-                                InlineKeyboardButton("🔄 Refresh / Try Again",
+                                InlineKeyboardButton("Refresh",
                                                      url=f"https://t.me/{Var.APP_NAME}.herokuapp.com/{usr_cmd}") # Chnage ur app name
                             ]
                         ]
@@ -100,7 +100,7 @@ Send me any file and get http link with stream support.!""",
             except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ** [ADARSH GOEL](https://t.me/ADARSHGOELO5).",
+                    text="**Oops! Something Went Wrong please contact.** [SUPPORT GROUP](https://t.me/AJPyroVerseGroup).",
                     parse_mode="markdown",
                     disable_web_page_preview=True)
                 return
@@ -129,25 +129,21 @@ Send me any file and get http link with stream support.!""",
         
 
         msg_text ="""
-<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>
+<b>Your Link Generated!</b>
 
-<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>
+<b>File Name :</b> <code>{}</code>
 
-<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>
+<b>File size :</b> <code>{}</code>
 
-<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>
+<b>Download :</b> <code>{}</code>
 
-<b> WATCH  :</b> <i>{}</i>
-
-<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE TILL I DELETE</b>
-
-<i>© @AdarshGoelo5 </i>"""
+<b>Stream :</b> <code>{}</code>"""
 
         await m.reply_text(
             text=msg_text.format(file_name, file_size, online_link, stream_link),
             parse_mode="HTML",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)]]) #Download Link
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Stream Now", url=stream_link), #Stream Link
+                                                InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ Now', url=online_link)]]) #Download Link
         )
 
 
@@ -157,7 +153,7 @@ async def help_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.BIN_CHANNEL,
-            f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ **\n\n__Mʏ Nᴇᴡ Fʀɪᴇɴᴅ__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started Your Bot !!__"
+            f"**New User Joined **\n\n__A new Fool person__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started me!!__"
         )
     if Var.UPDATES_CHANNEL is not None:
         try:
@@ -165,7 +161,7 @@ async def help_handler(bot, message):
             if user.status == "kicked":
                 await bot.send_message(
                     chat_id=message.chat.id,
-                    text="<i>Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ FROM USING ᴍᴇ. Cᴏɴᴛᴀᴄᴛ ᴛʜᴇ Dᴇᴠᴇʟᴏᴘᴇʀ</i>",
+                    text="<i>Sorry sir, You are banned. Contact my support group @AJPyroVerseGroup</i>",
                     parse_mode="HTML",
                     disable_web_page_preview=True
                 )
@@ -173,11 +169,11 @@ async def help_handler(bot, message):
         except UserNotParticipant:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="**Pʟᴇᴀsᴇ Jᴏɪɴ  Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴛʜɪs Bᴏᴛ!**\n\n__Dᴜᴇ ᴛᴏ Oᴠᴇʀʟᴏᴀᴅ, Oɴʟʏ Cʜᴀɴɴᴇʟ Sᴜʙsᴄʀɪʙᴇʀs ᴄᴀɴ ᴜsᴇ ᴛʜᴇ Bᴏᴛ!__",
+                text="**Please join My Update Channel In Order To Use Me!**\n\n__Due to heavy traffic, Only Channel Subscribers Can Use Me!__",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("🤖 Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                            InlineKeyboardButton("Jᴏɪɴ Cʜᴀɴɴᴇʟ", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
                         ]
                     ]
                 ),
@@ -187,23 +183,20 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="__Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ__ ADARSH GOEL](https://t.me/adarshgoelo5).",
+                text="__Oops! Something Went Wrong. Please Contact My Support Group__ Support Group](https://t.me/AJPyroVerseGroup).",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
     await message.reply_text(
         text="""
-<i>Sᴇɴᴅ ᴍᴇ ᴀɴʏ ꜰɪʟᴇ (ᴏʀ) ᴍᴇᴅɪᴀ ꜰʀᴏᴍ ᴛᴇʟᴇɢʀᴀᴍ.</i>\n
-<i>I ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ᴇxᴛᴇʀɴᴀʟ ᴅɪʀᴇᴄᴛ ᴅᴏᴡɴʟᴏᴀᴅ AND STREAM ʟɪɴᴋ !.</i>\n
-<u>𝗪𝗔𝗥𝗡𝗜𝗡𝗚 🚸</u>\n
-<b> SPAM ʟᴇᴀᴅꜱ ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛ ʙᴀɴ .</b>\n
-<i>Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ (ᴏʀ) ʀᴇᴘᴏʀᴛ ʙᴜɢꜱ</i> <b>: <a href='https://t.me/adarshgoelo5'>[ ᴄʟɪᴄᴋ ʜᴇʀᴇ ]</a></b>""",
+<i>Send me any file or video i will give you streamable link and download link.</i>\n
+<i>Contact My Support Group</i> <b>: <a href='https://t.me/AJPyroVerseGroup'>[ Click here ]</a></b>""",
         parse_mode="HTML",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🏵 DEV", url="https://GitHub.com/adarshgoel05")],
-                [InlineKeyboardButton("🍺 FOLLOW", url="https://GitHub.com/adarshgoel05")]
+                [InlineKeyboardButton("Channel", url="https://t.me/AJPyroVerse")],
+                [InlineKeyboardButton("Group", url="https://t.me/AJPyroVerseGroup")]
             ]
         )
     )
