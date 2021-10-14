@@ -8,4 +8,4 @@ RUN git clone https://github.com/Itzharshit/filestreambot
 RUN cd filestreambot
 WORKDIR /filestreambot
 RUN pip3 install -U -r requirements.txt
-CMD python3 main.py
+CMD python3 -m Code_X_Mania
