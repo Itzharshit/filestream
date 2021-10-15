@@ -36,7 +36,7 @@ async def start(b, m):
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<i>Join my update Channel in order to use me.</i>",
+                    text="Join my update Channel in order to use me.",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
@@ -184,14 +184,14 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="__Oops! Something Went Wrong. Please Contact My Support Group__ Support Group](https://t.me/AJPyroVerseGroup).",
+                text="Oops! Something Went Wrong. Please Contact My Support Group Support Group @AJPyroVerseGroup.",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
     await message.reply_text(
         text="""
 Send me any file or video i will give you streamable link and download link./n
-I also support Channels, add me to you Channel and send any media files and see miracle.\n""",
+I also support Channels, add me to you Channel and send any media files and see miracle.""",
         parse_mode="HTML",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
