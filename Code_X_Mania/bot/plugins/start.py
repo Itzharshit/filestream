@@ -192,7 +192,7 @@ async def help_handler(bot, message):
         text="""
 Send me any file or video i will give you streamable link and download link.
 I also support Channels, add me to you Channel and send any media files and see miracle.\n
-Contact My <a href='https://t.me/AJPyroVerseGroup'>Support Group</a> For more.""",
+Contact My <a href='https://t.me/AJPyroVerseGroup'>Support Group</a>""",
         parse_mode="HTML",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
