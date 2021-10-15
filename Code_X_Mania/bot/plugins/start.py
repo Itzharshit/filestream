@@ -190,13 +190,14 @@ async def help_handler(bot, message):
             return
     await message.reply_text(
         text="""
-Send me any file or video i will give you streamable link and download link.\n
-Contact My <a href='https://t.me/AJPyroVerseGroup'>Support Group</a>""",
+Send me any file or video i will give you streamable link and download link.
+I also support Channels, add me to you Channel and send any media files and see miracle.\n
+Contact My <a href='https://t.me/AJPyroVerseGroup'>Support Group</a> For more.""",
         parse_mode="HTML",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Channel", url="https://t.me/AJPyroVerse")],
+                [InlineKeyboardButton("Channel", url="https://t.me/AJPyroVerse")]
                 [InlineKeyboardButton("Group", url="https://t.me/AJPyroVerseGroup")]
             ]
         )
