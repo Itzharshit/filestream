@@ -100,7 +100,7 @@ Send me any file and get http download link with streamable link.!""",
             except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="**Oops! Something Went Wrong please contact.** [SUPPORT GROUP](https://t.me/AJPyroVerseGroup).",
+                    text="**Oops! Something Went Wrong please contact my support group @AJPyroVerseGroup**.",
                     parse_mode="markdown",
                     disable_web_page_preview=True)
                 return
@@ -129,7 +129,8 @@ Send me any file and get http download link with streamable link.!""",
         
 
         msg_text ="""
-<b>Your Link Generated!</b>
+<b>Sir
+Your Link Generated!</b>
 
 <b>File Name :</b> <code>{}</code>
 
@@ -161,7 +162,7 @@ async def help_handler(bot, message):
             if user.status == "kicked":
                 await bot.send_message(
                     chat_id=message.chat.id,
-                    text="<i>Sorry sir, You are banned. Contact my support group @AJPyroVerseGroup</i>",
+                    text="<b>Sorry sir, You are banned. Contact my support group @AJPyroVerseGroup</b>",
                     parse_mode="HTML",
                     disable_web_page_preview=True
                 )
@@ -189,8 +190,8 @@ async def help_handler(bot, message):
             return
     await message.reply_text(
         text="""
-<i>Send me any file or video i will give you streamable link and download link.</i>\n
-<i>Contact My Support Group</i> <b>: <a href='https://t.me/AJPyroVerseGroup'>[ Click here ]</a></b>""",
+Send me any file or video i will give you streamable link and download link.\n
+Contact My <a href='https://t.me/AJPyroVerseGroup'>Support Group</a>""",
         parse_mode="HTML",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
