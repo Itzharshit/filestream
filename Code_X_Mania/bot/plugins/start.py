@@ -184,7 +184,7 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="Oops! Something Went Wrong. Please Contact My Support Group Support Group @AJPyroVerseGroup.",
+                text="Oops! Something Went Wrong. Please Contact My Support Group @AJPyroVerseGroup.",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
